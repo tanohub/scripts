@@ -4,7 +4,7 @@ Sends a ping to a specified host. Colors the output to indicate latency.
 .DESCRIPTION
 Version 1.1. Provides a simple network monitoring solution, without the need to install any software.
 .EXAMPLE
-MultiPing ServerX 2
+MultiPing ServerX
 Sends a ping to ServerX every second. Repeats forever.
 .EXAMPLE
 MultiPing ServerX, ServerY, 10.1.1.254, www.google.com
