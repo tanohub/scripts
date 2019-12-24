@@ -4,7 +4,7 @@ Sends a ping to a specified host. Colors the output to indicate latency.
 .DESCRIPTION
 Version 1.1. Provides a simple network monitoring solution, without the need to install any software.
 .EXAMPLE
-MultiPing ServerX
+MultiPing ServerX 2
 Sends a ping to ServerX every second. Repeats forever.
 .EXAMPLE
 MultiPing ServerX, ServerY, 10.1.1.254, www.google.com
@@ -18,7 +18,7 @@ Write-Host "Thresholds: critical=$PingCritical, warning=$PingWarning" -Foregroun
 Do {
   $computername | foreach {
     $a = Test-Connection $_ -Count 1 -ErrorAction SilentlyContinue
-    if (!$?) { Write-Host "$_ DOWN! " -nonewline -fore red }   
+    if (!$?) { Write-Host "$_ DOWN! " -nonewline -fore red }
     else {
       $msg = "$($a.Address) $($a.ResponseTime.ToString().PadRight(4))"
       if     ($a.ResponseTime -ge $PingCritical) { write-host $msg -nonewline -fore red }
